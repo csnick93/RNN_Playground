@@ -40,27 +40,27 @@ class CharPredictor:
         """
         Args:
             epochs : number of epochs we are training the model
+            unit_type: choice between LSTM,GRU, and BasicRNN
+            no_layers: number of layers EXCLUDING input layer and output 
+                                layer
             seq_length: seq-length of input we need for training and later also
                                 sampling
-            train_batch_size: number of sequences to be fed in before updating 
-                                parameters
+            hidden_size: size of RNN internal representation
+            dropout: dropout rate
+            inner_dropout: recurrent dropout rate
+            l2_regularization: l2 regularization rate
+            val_split: ratio of validation data of whole text
+            optimization: type of optimization method
+            batch_size: batch size for training
             temperature: the higher the temperature, the more random the 
                             sampling function will get
-            predict_length: the number of characters we are predicting in the 
+            sampling_length: the number of characters we are predicting in the 
                                 generate function
-            optimization: type of optimization method
             seed: initial sequence of characters for sampling (must be at least 
                                 seq_length long)
-            number_of_layers: number of layers EXCLUDING input layer and output 
-                                layer 
-            unit_type: choice between LSTM,GRU, and BasicRNN
-            dropout: if dropout is used, what dropout-percentage to use
-            patience: number of epochs to wait for improvement
             source_path: where to get text_file from for learning
-            model_path: where to save best model
-            sample_path: where to save sampled text
-            val_split: ratio of validation data of whole text
-            batch_size: 
+            vocab_size: size of alphabet (necessary for 1-hot encoding)
+            char_to_ix, ix_to_char: dictionaries encoding bijective index to character mapping
         """
         
         # Training parameters

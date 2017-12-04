@@ -11,22 +11,29 @@ import numpy as np
 import webbrowser
 
 ##############################################################
-def createReport(networkList,outfile):
-    createHTML_header(outfile, networkList)         #create the header of html file
-    for index,network in enumerate(networkList):
-        createInstance(index,network,outfile)        
-    createHTML_endOfFile(outfile)
+def createReport(modelList,html_file):
+    '''
+    Method in charge of creating the html report.
+    
+    Args:
+        modelList: list of paths of trained models to display
+        html_file: file to write html code to
+    '''
+    createHTML_header(html_file, modelList)        
+    for index,model in enumerate(modelList):
+        createInstance(index,model,html_file)        
+    createHTML_endOfFile(html_file)
     
 ##############################################################
-def createHTML_header(outfile, networkList):
+def createHTML_header(html_file, modelList):
     """
     Create header html report.
     
     Args:
-        outfile: where to write html code to
-        networkList: list of network folders to put results on html
+        html_file: where to write html code to
+        modelList: list of network folders to put results on html
     """
-    with open(outfile,'w') as f:
+    with open(html_file,'w') as f:
         f.write("<!DOCTYPE html>\n")
         f.write("<html>\n")
         f.write("<head>\n")
@@ -65,15 +72,15 @@ def createHTML_header(outfile, networkList):
         f.write("<h1 id = \"TOP\" style=\"text-align:center;\"> RNN Report </h1>\n")
         f.write("<br>")
         f.write("<br>")
-        f.write("<p> Number of trained Networks: "+ str(len(networkList))+"</p>\n")
+        f.write("<p> Number of trained Networks: "+ str(len(modelList))+"</p>\n")
         f.write("<br>")
         f.write("<br>")
         f.write("<br>\n")
         f.write("<div class=\"container-fluid\">\n")
 
 #############################################################################
-def createHTML_endOfFile(outfile):
-    with open(outfile,'a') as f:
+def createHTML_endOfFile(html_file):
+    with open(html_file,'a') as f:
         f.write("</div>\n")
         f.write("</body>\n")
         f.write("</html>")
@@ -90,7 +97,7 @@ def createInstance(index,model_path,html_file):
     '''
     print("Creating: " + model_path)
     with open(html_file,'a') as f:
-        ######################################
+        ####################
         # CREATE THE TABLE #
         ####################
         with open(os.path.join(model_path,"history.txt"),'r') as h:
@@ -134,37 +141,38 @@ def createInstance(index,model_path,html_file):
         
         f.write("\t\t </div>\n")
         f.write("\n")
-        #######################################
+        
+        #############
         # LOSS PLOT #
         ############
         f.write("\t\t <div class=\"col-md-5\">\n")
         f.write("\t\t\t<h3 style=\"text-align:center;\">Loss Graph</h3>\n")
         
         f.write("<br>\n<br>\n<br>\n<br>\n<br>\n")
-        f.write("<img src=\""+os.path.join(model_path,"loss_plot.png")+ "\" alt = \"Loss Graph\" style=\"display:block; margin: auto;\" width=\"450\" height=\"325\">")
+        loss_plot_path = './Results/'+os.path.basename(model_path)+'/loss_plot.png'
+        f.write("<img src=\""+loss_plot_path+ "\" alt = \"Loss Graph\" style=\"display:block; margin: auto;\" width=\"450\" height=\"325\">")
         
         f.write("\t\t</div>\n")
         f.write("\n")
-        ###############################################
-        #Write sample text #
-        ####################
+        
+        #####################
+        # WRITE SAMPLE TEXT #
+        #####################
         
         f.write("\t\t <div class=\"col-xs-12 col-md-5\">\n")
         f.write("\t\t\t<h3 style=\"text-align:center;\">Sample Text</h3>\n")
         
-        f.write("<br>")
-        f.write("<br>")
-        f.write("<br>")
+        f.write("<br>\n")
+        f.write("<br>\n")
+        f.write("<br>\n")
         textFormatted = formatText(os.path.join(model_path,"sampleText.txt"))
-        #print(textFormatted)
         for line in textFormatted:
-            f.write("\t\t\t\t <p align=\"center\"> "+line+"</p>")
+            f.write("\t\t\t\t <p align=\"center\"> "+line+"</p>\n")
         f.write("\t\t</div>\n")
         
         f.write("\t</div>\n")
         f.write("\n")
-        
-        #add some space between instances
+
         f.write("<br>\n<br>\n<br>\n<br>\n<br>\n")
         f.write("<p><a href=\"#TOP\">Back to the Top</a></p>")
         f.write("<br>\n<br>\n<br>\n<br>\n<br>\n")

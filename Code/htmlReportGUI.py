@@ -4,8 +4,9 @@ Created on Thu Dec 08 22:24:19 2016
 
 @author: nickv
 
-GUI to create webreport summary
+GUI to create html report summary
 """
+
 import os
 from tkinter import *
 from htmlReport import makeHTMLReport
@@ -41,6 +42,9 @@ def main():
     epochs.pack(side = TOP,fill=X)
     numberLayers.pack(side = TOP,fill = X)
     def callWebReportCreation(): 
+        '''
+        Get checked options and create HTML report.
+        '''
         chosenSources = [sourceTextOptions[i] for i in [j for j,k in enumerate(list(sourceText.state())) if k==1]]
         chosenUnits = [unitTypeOptions[i] for i in [j for j,k in enumerate(list(unitType.state())) if k==1]]
         chosenEpochs = [epochOptions[i] for i in [j for j,k in enumerate(list(epochs.state())) if k==1]]
