@@ -3,6 +3,8 @@
 Created on Thu Nov 21 22:42:05 2016
 
 @author: nickv
+
+Helper functions for the framework.
 """
 
 import numpy as np

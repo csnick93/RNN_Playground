@@ -3,6 +3,8 @@
 Created on Thu Nov 21 22:43:54 2016
 
 @author: nickv
+
+Main file managing the training.
 """
 
 import os

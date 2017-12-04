@@ -2,7 +2,7 @@
 """
 Created on Fri Jul 01 12:53:57 2016
 
-Create the webpage
+Create html report.
 
 @author: z003caje
 """

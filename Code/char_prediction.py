@@ -1,21 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Dec 07 08:38:57 2016
-
-@author: nickv
-"""
-
-# -*- coding: utf-8 -*-
-"""
-COMMANDS:
-    - making theano backend: export KERAS_BACKEND=theano
-    - enabling gpu device: THEANO_FLAGS=device=gpu python keras_char_prediction.py
-
 Created on Sun Nov 20 13:59:54 2016
 
 @author: nickv
 
-Character Prediction using Keras
+Character Prediction class.
 """
 
 

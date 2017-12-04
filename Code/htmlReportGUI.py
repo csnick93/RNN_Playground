@@ -4,7 +4,7 @@ Created on Thu Dec 08 22:24:19 2016
 
 @author: nickv
 
-GUI to create html report summary
+GUI to create html report summary.
 """
 
 import os
