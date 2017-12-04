@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfigParameters>
+	<LearningParameters>
+		<epochs>3</epochs>
+		<unit_type>SimpleRNN</unit_type>
+		<no_layers>1</no_layers>
+		<seq_length>20</seq_length>
+		<hidden_size>512</hidden_size>
+		<dropout>0.2</dropout>
+		<inner_dropout>0.0</inner_dropout>
+		<l2_regularization>0.0</l2_regularization>
+		<val_split>0.1</val_split>
+		<optimization>rmsprop</optimization>
+		<batch_size>50</batch_size>
+	</LearningParameters>
+	<SamplingParameters>
+		<temperature>0.35</temperature>
+		<sampling_length>1000</sampling_length>
+		<seed>This is how I want to start the sampling</seed>
+	</SamplingParameters>
+	<Paths>
+		<SourceFile>SmallText.txt</SourceFile>
+	</Paths>
+</ConfigParameters>
