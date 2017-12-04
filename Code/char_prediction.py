@@ -264,7 +264,8 @@ class CharPredictor:
         start_time = time.time()
         model.compile(loss = "categorical_crossentropy",optimizer = self.optimization)
         saveBestModel = ModelCheckpoint(self.model_path,monitor = "val_loss", verbose = 1, save_best_only = True)
-        no_samples_per_epoch = int((len(train_text)-self.seq_length)/self.batch_size)    # calculate how many samples can be created out of text
+        # calculate how many samples can be created out of text
+        no_samples_per_epoch = int((len(train_text)-self.seq_length)/self.batch_size)    
         no_val_samples_per_epoch = (len(val_text)-self.seq_length-1)
         
         
