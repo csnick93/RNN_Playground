@@ -43,7 +43,6 @@ def main():
     # TRAIN THE MODEL #
     ###################
     
-    
     # check if model has been interrupted while training (if so continue where we left off)
     if os.path.exists(os.path.join(rnn.result_folder,"history.txt")):
         # find out number of epochs that have been trained already

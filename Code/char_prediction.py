@@ -203,6 +203,8 @@ class CharPredictor:
         
     
     ###########################################################################
+    # TRAIN MODEL #
+    ###############
     def train_generator(self,model, train_text, val_text):
         '''
         Member function variant of training, using the fit_generator method.
