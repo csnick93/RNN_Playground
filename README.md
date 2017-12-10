@@ -37,3 +37,5 @@ Adjust the config.xml to your desires and run main.py. A new folder in Results w
 ## Visualizing results
 In order to get a nice summary of the trained models, run htmlReportGUI.py. A GUI will pop up listing all the different configurations encountered in the Results folder. Choose the configurations you are interested in. After a html file will automatically open in your browser so you can view the results.
   
+<img src="gui_example.png" alt="Drawing" height="100"/> 
+<img src="html_example.png" alt="Drawing" height="350"/>
