@@ -14,42 +14,19 @@ For a quick start:
 ## Prerequisites
 
 The following packages are required in order to run the code:
-  - keras
-  - numpy 
+  - keras (>= 2.0.6)
+  - numpy (>= 1.13.3)
   
  The following required packages you should have per default:
   - tkinter 
   - matplotlib
   - xml
-  - os
   - webbrowser
   
 ## Configuring the RNN model
 
 Open the config.xml in the Configuration folder. There, the learning parameters, the sampling parameters (for text generation) and Paths (the textfile to learn from) can be configured.
 
-### Learning Parameters
-  - epochs: Number of epochs to train
-  - unit_type: the type of RNN to use (SimpleRNN, GRU, LSTM)
-  - no_layers: the number of RNN layers to use
-  - seq_length: the unfolding length of the RNN 
-  - hidden_size: hidden size of latent variables inside the RNN unit
-  - dropout: dropout rate
-  - inner_dropout: the recurrent dropout rate
-  - l2_regularization: recurrent l2 regularization rate
-  - val_split: the validation split for the input text 
-  - optimization: desired optimization algorithm
-  - batch_size: batch_size during training
-  
-### Sampling parameters
-  - temperature: controls the randomness of sampling in the text generation phase (in [0,1]; the higher the more random)
-  - sampling_length: length of sampled text at the end of training
-  - seed: the initial seed required to do sampling (must be at least seq_length long)
-  
-### Paths
-  - SourceFile: file to use in folder SourceText for training
-  
-  
 ## Starting the training
 Adjust the config.xml to your desires and run main.py. A new folder in Results will be created and the results will be saved there. The results consist of:
   - history.txt: The loss over the epochs
