@@ -1,21 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConfigParameters>
+	<!--Parameters to modify learning process-->
 	<LearningParameters>
-		<epochs>3</epochs>
+		<!-- The number of epochs to train for.
+				Type: int -->
+		<epochs>1</epochs>
+		<!-- The type of RNN to use.
+				Options: {SimpleRNN, GRU, LSTM}
+				Type: string -->
 		<unit_type>SimpleRNN</unit_type>
+		<!-- The number of stacked RNN layers.
+				Type: int -->
 		<no_layers>1</no_layers>
+		<!-- The sequence length of the training samples, i.e.
+				the unfolding length of the RNN. 
+				Type: int	-->
 		<seq_length>20</seq_length>
+		<!-- The hidden size of the units within the RNN unit.
+				Type: int -->
 		<hidden_size>512</hidden_size>
+		<!-- The dropout rate between the layers 
+				Type: float in [0,1] -->
 		<dropout>0.2</dropout>
+		<!-- The recurrent dropout within RNN units 
+				Type: float in [0,1] -->
 		<inner_dropout>0.0</inner_dropout>
+		<!-- The l2 regularization weight 
+				Type: float -->
 		<l2_regularization>0.0</l2_regularization>
+		<!-- The validation split of the text samples to train from.
+				Type: float --> 
 		<val_split>0.1</val_split>
+		<!-- The optimizer to use for training 
+				Type: string -->
 		<optimization>rmsprop</optimization>
-		<batch_size>50</batch_size>
+		<!-- The batch size used in training
+				Type: int -->
+		<batch_size>64</batch_size>
 	</LearningParameters>
+	<!-- Parameters used for the sampling of the text -->
 	<SamplingParameters>
+		<!-- controls the randomness of sampling in the text generation phase 
+				(in [0,1]; the higher the more random)
+				Type: float -->
 		<temperature>0.35</temperature>
+		<!-- Character length of the sampled text 
+				Type: int -->
 		<sampling_length>1000</sampling_length>
+		<!-- Initial seed required to do sampling (must be at least seq_length long)
+				Type: string -->
 		<seed>This is how I want to start the sampling</seed>
 	</SamplingParameters>
 	<Paths>
